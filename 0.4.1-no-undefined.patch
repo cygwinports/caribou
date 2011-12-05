@@ -1,0 +1,47 @@
+--- origsrc/caribou-0.4.1/libcaribou/Makefile.am	2011-10-09 15:38:14.000000000 -0500
++++ src/caribou-0.4.1/libcaribou/Makefile.am	2011-11-18 10:59:05.255984600 -0600
+@@ -26,6 +26,8 @@ caribou_headers = \
+ libcaribouinclude_HEADERS = \
+ 	$(caribou_headers)
+ 
++libcaribou_la_LDFLAGS = -no-undefined
++
+ libcaribou_la_LIBADD = \
+ 	$(LIBCARIBOU_LIBS)
+ 
+@@ -62,8 +64,13 @@ typelib_DATA = Caribou-1.0.typelib
+ Caribou-1.0.gir: _Caribou-1.0.gir
+ 	$(top_srcdir)/tools/fix_gir.py $< > $@
+ 
+-Caribou-1.0.typelib: Caribou-1.0.gir
+-	@INTROSPECTION_COMPILER@ --shared-library=libcaribou.so.0 -o $@ $^
++# We have to extract our own dlname from libfolks.la; see bgo#658002.
++# This is what g-ir-scanner does.
++libcaribou_dlname = \
++	`$(SED) -n "s/^dlname='\([A-Za-z0-9.+-]\+\)'/\1/p" libcaribou.la`
++
++Caribou-1.0.typelib: Caribou-1.0.gir libcaribou.la
++	@INTROSPECTION_COMPILER@ --shared-library=$(libcaribou_dlname) -o $@ $^
+ 
+ Caribou-1.0.gir caribou-internals-1.0.vapi caribou-1.0.vapi: libcaribou.la
+ 
+--- origsrc/caribou-0.4.1/modules/gtk2/Makefile.am	2011-10-09 15:38:14.000000000 -0500
++++ src/caribou-0.4.1/modules/gtk2/Makefile.am	2011-11-18 10:28:52.844320600 -0600
+@@ -27,6 +27,7 @@ libcaribou_gtk_module_la_LIBADD = \
+ libcaribou_gtk_module_la_LDFLAGS = \
+ 	-avoid-version \
+ 	-module \
++	-no-undefined \
+ 	$(NULL)
+ 
+ EXTRA_DIST = \
+--- origsrc/caribou-0.4.1/modules/gtk3/Makefile.am	2011-10-09 15:38:14.000000000 -0500
++++ src/caribou-0.4.1/modules/gtk3/Makefile.am	2011-11-18 10:28:57.068562200 -0600
+@@ -26,6 +26,7 @@ libcaribou_gtk_module_la_LIBADD = \
+ libcaribou_gtk_module_la_LDFLAGS = \
+ 	-avoid-version \
+ 	-module \
++	-no-undefined \
+ 	$(NULL)
+ 
+ EXTRA_DIST = \

@@ -1,0 +1,3 @@
+category: Gnome
+requires: libatk1.0_0 libgee2 libglib2.0_0 libgtk3_0 libX11_6 libxklavier16 libxml2 libXtst6 python python-dbus python-gi python-pyatspi girepository-Clutter1.0 girepository-GConf2.0 girepository-Gtk3.0
+sdesc: "GNOME on-screen keyboard"

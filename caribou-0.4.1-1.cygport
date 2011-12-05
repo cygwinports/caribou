@@ -1,0 +1,6 @@
+inherit gnome2
+
+
+PATCH_URI="0.4.1-no-undefined.patch"
+
+CYGCONF_ARGS="--libexecdir=/usr/bin"
