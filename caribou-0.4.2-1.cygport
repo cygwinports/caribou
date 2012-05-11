@@ -3,4 +3,8 @@ inherit gnome2
 
 PATCH_URI="0.4.1-no-undefined.patch"
 
+DIFF_EXCLUDES="i18n.py"
+
 CYGCONF_ARGS="--libexecdir=/usr/bin"
+
+KEEP_LA_FILES="none"
