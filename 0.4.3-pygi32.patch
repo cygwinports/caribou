@@ -1,0 +1,16 @@
+Revert for PyGI 3.4:
+
+https://bugzilla.gnome.org/show_bug.cgi?id=676746
+http://git.gnome.org/browse/caribou/commit/?id=8279478
+
+--- origsrc/caribou-0.4.3/tools/make_schema.py	2012-07-18 06:38:08.000000000 -0500
++++ src/caribou-0.4.3/tools/make_schema.py	2012-07-30 22:12:20.220634000 -0500
+@@ -58,7 +58,7 @@ class SchemasMaker:
+             schemalist.appendChild(key)
+             self._append_children_element_value_pairs(
+                 doc, key, [('default',
+-                            getattr(setting.gvariant, "print_")(False)),
++                            getattr(setting.gvariant, "print")(False)),
+                            ('_summary', setting.short_desc),
+                            ('_description', setting.long_desc)])
+ 
