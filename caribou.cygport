@@ -1,6 +1,9 @@
 inherit gnome2
 
-CATEGORY="Accessibility Gnome"
+NAME="caribou"
+VERSION=0.4.6
+RELEASE=1
+CATEGORY="GNOME"
 SUMMARY="GNOME on-screen keyboard"
 DESCRIPTION="Caribou is a text entry and UI navigation application being
 developed as an alternative to the Gnome On-screen Keyboard. The
@@ -15,4 +18,3 @@ DIFF_EXCLUDES="i18n.py"
 
 CYGCONF_ARGS="--libexecdir=/usr/bin"
 
-KEEP_LA_FILES="none"
