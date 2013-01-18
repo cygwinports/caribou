@@ -2,7 +2,7 @@ inherit gnome2
 
 NAME="caribou"
 VERSION=0.4.6
-RELEASE=1
+RELEASE=2
 CATEGORY="GNOME"
 SUMMARY="GNOME on-screen keyboard"
 DESCRIPTION="Caribou is a text entry and UI navigation application being
