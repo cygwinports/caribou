@@ -1,20 +1,26 @@
-inherit gnome2
+inherit gnome2 python
 
 NAME="caribou"
-VERSION=0.4.6
-RELEASE=2
-CATEGORY="GNOME"
+VERSION=0.4.11
+RELEASE=1
+CATEGORY="Libs"
 SUMMARY="GNOME on-screen keyboard"
 DESCRIPTION="Caribou is a text entry and UI navigation application being
 developed as an alternative to the Gnome On-screen Keyboard. The
 overarching goal for Caribou is to create a usable solution for people
 whose primary way of accessing a computer is a switch device."
-REQUIRES="at-spi2-atk at-spi2-core"
-REQUIRES+=" girepository-Clutter1.0 girepository-GConf2.0 girepository-Gtk3.0"
 
 PATCH_URI="0.4.1-no-undefined.patch"
 
+PKG_NAMES="caribou libcaribou0 libcaribou-devel girepository-Caribou1.0 vala-caribou1.0"
+caribou_CATEGORY="GNOME"
+caribou_REQUIRES="at-spi2-atk at-spi2-core girepository-Caribou1.0 girepository-Clutter1.0 girepository-Gtk3.0"
+caribou_CONTENTS="--exclude=gir-1.0 --exclude=vala etc/ usr/bin/caribou*
+	usr/lib/gnome-* usr/lib/gtk-* usr/libexec/ ${PYTHON_SITELIB#/} usr/share/"
+libcaribou0_CONTENTS="usr/bin/cygcaribou-0.dll"
+libcaribou_devel_CONTENTS="usr/include/ usr/lib/lib* usr/lib/pkgconfig/"
+girepository_Caribou1_0_REQUIRES="libcaribou0" # inserted into typelib
+girepository_Caribou1_0_CONTENTS="usr/*/gir*/Caribou-1.0.*"
+vala_caribou1_0_CONTENTS="usr/share/vala/vapi/caribou-1.0.*"
+
 DIFF_EXCLUDES="i18n.py"
-
-CYGCONF_ARGS="--libexecdir=/usr/bin"
-
