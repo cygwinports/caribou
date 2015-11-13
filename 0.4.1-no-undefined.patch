@@ -1,3 +1,21 @@
+--- origsrc/caribou-0.4.19/configure.ac	2015-06-08 07:22:38.000000000 -0500
++++ src/caribou-0.4.19/configure.ac	2015-11-13 00:48:56.362601000 -0600
+@@ -95,6 +95,7 @@ AM_CONDITIONAL([ENABLE_GTK3_MODULES], [t
+ if test x"$enable_gtk3_module" = x"yes"; then
+     PKG_CHECK_MODULES(GTK3, [
+         gtk+-3.0
++        gmodule-2.0
+     ])
+ 
+     GTK3_MODULES_DIR="$libdir"/gtk-3.0/modules
+@@ -112,6 +113,7 @@ AM_CONDITIONAL([ENABLE_GTK2_MODULES], [t
+ if test x"$enable_gtk2_module" = x"yes"; then
+     PKG_CHECK_MODULES(GTK2, [
+         gtk+-2.0
++        gmodule-2.0
+     ])
+ 
+     GTK2_MODULES_DIR="$libdir"/gtk-2.0/modules
 --- origsrc/caribou-0.4.1/libcaribou/Makefile.am	2011-10-09 15:38:14.000000000 -0500
 +++ src/caribou-0.4.1/libcaribou/Makefile.am	2011-11-18 10:59:05.255984600 -0600
 @@ -26,6 +26,8 @@ caribou_headers = \

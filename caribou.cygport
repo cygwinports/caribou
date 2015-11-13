@@ -1,7 +1,7 @@
 inherit gnome2 python
 
 NAME="caribou"
-VERSION=0.4.16
+VERSION=0.4.19
 RELEASE=1
 CATEGORY="Libs"
 SUMMARY="GNOME on-screen keyboard"
