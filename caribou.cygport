@@ -1,7 +1,7 @@
 inherit gnome2 python
 
 NAME="caribou"
-VERSION=0.4.19
+VERSION=0.4.21
 RELEASE=1
 CATEGORY="Libs"
 SUMMARY="GNOME on-screen keyboard"
@@ -14,7 +14,7 @@ PATCH_URI="0.4.1-no-undefined.patch"
 
 PKG_NAMES="caribou libcaribou0 libcaribou-devel girepository-Caribou1.0 vala-caribou1.0"
 caribou_CATEGORY="GNOME"
-caribou_REQUIRES="at-spi2-atk at-spi2-core girepository-Caribou1.0 girepository-Clutter1.0 girepository-Gtk3.0"
+caribou_REQUIRES="at-spi2-core gtk2.0-atk-bridge girepository-Caribou1.0 girepository-Clutter1.0 girepository-Gtk3.0"
 caribou_CONTENTS="--exclude=gir-1.0 --exclude=vala etc/ usr/bin/caribou*
 	usr/lib/gnome-* usr/lib/gtk-* usr/libexec/ ${PYTHON_SITELIB#/} usr/share/"
 libcaribou0_CONTENTS="usr/bin/cygcaribou-0.dll"
